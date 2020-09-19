@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "scheduler-reactnative"
+  },
+  "targets": {
+    "scheduler-reactnative": {
+      "hosting": {
+        "webapp": [
+          "scheduler-reactnative"
+        ]
+      }
+    }
   }
 }
