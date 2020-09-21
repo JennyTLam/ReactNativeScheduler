@@ -14,7 +14,7 @@ const CourseDetailScreen = ({route}) => {
     const course = route.params.course;
 
     return (
-        <SafeAreaView>
+        <SafeAreaView style={styles.container}>
             <ScrollView>
                 <Field label="ID" value={course.id} />
                 <Field label="Meeting times" value={course.meets} />
@@ -26,30 +26,30 @@ const CourseDetailScreen = ({route}) => {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#ccccb3'
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: '#ccccb3'
     },
     field: {
-        height: 40,
-        width: 300,
-        padding: 5,
-        backgroundColor: 'white',
+      height: 40,
+      width: 300,
+      padding: 5,
+      backgroundColor: 'white',
     },
     fieldContainer: {
-        marginBottom: 20,
-        shadowColor: '#000',
-        shadowOffset: {
+      marginBottom: 20,
+      shadowColor: '#000',
+      shadowOffset: {
         width: 0,
         height: 2,
-        },
-        shadowOpacity: 0.23,
-        shadowRadius: 2.62,
-        elevation: 4,
+      },
+      shadowOpacity: 0.23,
+      shadowRadius: 2.62,
+      elevation: 4,
     },
     label: {
-        fontWeight: 'bold',
+      fontWeight: 'bold',
     }
 });
 

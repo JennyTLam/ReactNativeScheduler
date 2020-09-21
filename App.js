@@ -10,7 +10,7 @@ import UserContext from './UserContext';
 const Stack = createStackNavigator();
 
 const App = () => {
-  const [user, setUser] = useState({role:"admin"});
+  const [user, setUser] = useState();
 
   return (
     <UserContext.Provider value={user}>
