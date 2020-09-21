@@ -1,4 +1,4 @@
-import firebase from '../components/firebase';
+import { firebase } from '../utils/firebase';
 
 import React, { useContext, useState, useEffect } from 'react';
 import { StyleSheet, Text, SafeAreaView } from 'react-native';
@@ -23,10 +23,11 @@ const ScheduleScreen = ({navigation}) => {
 
     useEffect(() => {
         const db = firebase.database().ref();
-        db.on('value', snap => {
-          if (snap.val()) setSchedule(fixCourses(snap.val()))    ;
-        }, error => console.log(error));
-        return () => { db.off('value',handleData); };
+        const handleData = snap => {
+          if (snap.val()) setSchedule(fixCourses(snap.val()));
+        }
+        db.on('value', handleData, error => alert(error));
+        return () => { db.off('value', handleData); };
     }, []);
 
     return (
