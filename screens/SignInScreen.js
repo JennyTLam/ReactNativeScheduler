@@ -38,7 +38,7 @@ const RegisterScreen = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView>
+      <ScrollView style={styles.container2}>
         <Form
           initialValues={{
             email: '',
