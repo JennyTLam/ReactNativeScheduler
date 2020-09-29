@@ -22,15 +22,18 @@ const RegisterScreen = ({ navigation }) => {
   
   async function handleOnSubmit(values) {
     const { email, password, confirmPassword } = values;
-    console.log(confirmPassword);
-    console.log(email);
-    console.log(password);
+
     if (confirmPassword){
-      firebase.auth().createUserWithEmailAndPassword(email, password);
+      firebase.auth().createUserWithEmailAndPassword(email, password).catch((error) => {
+        setSignInError(error.message);
+      });
     }
     else{
-      firebase.auth().signInWithEmailAndPassword(email, password);
+      firebase.auth().signInWithEmailAndPassword(email, password).catch((error) => {
+        setSignInError(error.message);
+      });
     }
+    if (signInError == '') navigation.navigate("ScheduleScreen");
   }
 
   return (
@@ -71,7 +74,7 @@ const RegisterScreen = ({ navigation }) => {
             secureTextEntry={true}
             textContentType="password"
           />
-          <Form.Button title={values => values.confirmPassword ? "Sign Up" : "Log In"} onPress={() => navigation.navigate('ScheduleScreen')} />
+          <Form.Button title={values => values.confirmPassword ? "Sign Up" : "Log In"}/>
           {<Form.ErrorMessage error={signInError} visible={true} />}
         </Form>
       </ScrollView>
