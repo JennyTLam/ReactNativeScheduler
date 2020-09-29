@@ -71,7 +71,7 @@ const RegisterScreen = ({ navigation }) => {
             secureTextEntry={true}
             textContentType="password"
           />
-          <Form.Button title={values => (values.confirmPassword) ? "Sign Up" : "Log In"} onPress={() => navigation.navigate('ScheduleScreen')} />
+          <Form.Button title={values => values.confirmPassword ? "Sign Up" : "Log In"} onPress={() => navigation.navigate('ScheduleScreen')} />
           {<Form.ErrorMessage error={signInError} visible={true} />}
         </Form>
       </ScrollView>

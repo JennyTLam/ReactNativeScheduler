@@ -2,8 +2,12 @@ This is starter code for simple React Native forms, using Formik and Yup.
 
 It is adapted from 
 [expo-community-firebase-starter](https://github.com/expo-community/expo-firebase-starter).
-The main change was the addition of a **Form** wrapper so that only one component needs to be imported,
-and a **FormSwitch** toggle component.
+The main changes are
+
+- only **Form** needs to be imported; it provides **Form.Button**, etc.
+- a **Form.Switch** toggle component
+- title functions for **Form.Button**
+
 
 # Installation
 
@@ -17,7 +21,8 @@ Put all the source files into your components directory.
 
 # Example
 
-Here's the form part of [LoginScreen](https://github.com/expo-community/expo-firebase-starter/blob/master/screens/LoginScreen.js) from expo-community-starter, as it would be implemented with **Form**. 
+Here's the form part of [LoginScreen](https://github.com/expo-community/expo-firebase-starter/blob/master/screens/LoginScreen.js) from expo-community-starter, as it would be implemented with **Form**, including an example
+of **Form.Switch** and a title function.
 Event handling, Yup validation, styles, and so on, are omitted. Icon
 names in the text fields are [MaterialCommunityIcons](https://icons.expo.fyi/) provided by Expo.
 
@@ -55,7 +60,8 @@ export default function LoginScreen({ navigation }) {
           rightIcon={rightIcon}
           handlePasswordVisibility={handlePasswordVisibility}
         />
-        <Form.Button title={'Login'} />
+        <Form.Switch name="register">
+        <Form.Button title={values => values.register ? 'Register' : 'Login'} />
         {<Form.ErrorMessage error={loginError} visible={true} />}
       </Form>
       ...
