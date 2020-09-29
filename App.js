@@ -34,7 +34,8 @@ const App = () => {
 
   useEffect(() => {
     if (auth && auth.uid) {
-      const db = firebase.database().ref('users').child(auth.uid);
+      const db = firebase.database().ref('users');
+      db.child(auth.uid).set(auth.uid);
       const handleData = snap => {
         setUser({uid:auth.uid, ...snap.val()});
       }
